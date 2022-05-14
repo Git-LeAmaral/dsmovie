@@ -1,9 +1,10 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 import MovieCard from "components/MovieCard";
 import Pagination from "components/Pagination";
-import { useEffect, useState } from "react";
-import { MoviePage } from "types/movie";
 import { BASE_URL } from "utils/requests";
+import { MoviePage } from "types/movie";
+
 
 function Listing() {
 
@@ -18,7 +19,7 @@ function Listing() {
         number: 0,
         first: true,
         numberOfElements: 0,
-        empty: true,
+        empty: true
     });
 
     useEffect(() => {
@@ -35,18 +36,15 @@ function Listing() {
 
             <div className="conatiner">
                 <div className="row">
-
                     {page.content.map(movie =>
                         <div key={movie.id} className="col-sm-6 col-lg-4 col- xl-3 mb-3">
                             <MovieCard movie={movie} />
                         </div>
                     )}
-
                 </div>
             </div>
         </>
-
-    )
+    );
 }
 
 export default Listing;
